@@ -242,7 +242,7 @@ html {
 }
 
 body {
-    background: #1D2026;
+    background: #1596C1;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased
 }
@@ -251,7 +251,7 @@ hr {
     border: 0;
     display: block;
     height: 1px;
-    background: #242830;
+    background: #fff;
     margin-top: 24px;
     margin-bottom: 24px
 }
@@ -346,7 +346,7 @@ html {
 }
 
 body {
-    color: #8A94A7;
+    color: #000000;
     font-size: 1rem
 }
 
@@ -359,7 +359,7 @@ textarea {
 }
 
 a {
-    color: #8A94A7;
+    color: #000000;
     text-decoration: underline
 }
 
@@ -490,6 +490,14 @@ h6,
         line-height: 30px;
         letter-spacing: -0.1px
     }
+
+    .img-div {
+
+        display: grid;
+        place-items: center;
+
+
+    }
 }
 
 .text-light h1,
@@ -504,7 +512,7 @@ h6,
 .text-light .h4,
 .text-light .h5,
 .text-light .h6 {
-    color:  !important
+    color: #000 !important
 }
 
 .text-sm {
@@ -524,7 +532,8 @@ h2,
 .h1,
 .h2 {
     margin-top: 48px;
-    margin-bottom: 16px
+    margin-bottom: 16px;
+    color: #000;
 }
 
 h3,
@@ -576,7 +585,7 @@ blockquote p {
 }
 
 address {
-    color: #8A94A7;
+    color: #000000;
     border-width: 1px 0;
     border-style: solid;
     border-color: #242830;
@@ -605,7 +614,7 @@ code,
 kbd,
 tt,
 var {
-    background: #1D2026
+    background: #fff
 }
 
 pre {
@@ -709,7 +718,7 @@ label {
     line-height: 16px;
     text-decoration: none;
     text-transform: uppercase;
-    background-color: #1D2026;
+    background-color: #fff;
     color: #6B15EC !important;
     border: none;
     height: auto;
@@ -1150,7 +1159,7 @@ label {
     border-style: solid;
     border-color: #242830;
     border-radius: 2px;
-    color: #8A94A7;
+    color: #000000;
     max-width: 100%;
     width: 100%
 }
@@ -1191,8 +1200,8 @@ label {
 .input[disabled],
 .textarea[disabled] {
     cursor: not-allowed;
-    background-color: #1D2026;
-    border-color: #1D2026
+    background-color: #fff;
+    border-color: #fff
 }
 
 .input {
@@ -1244,7 +1253,11 @@ label {
         margin-bottom: 0;
         margin-right: 8px
     }
+
 }
+
+
+
 
 .button {
     display: inline-flex;
@@ -1267,7 +1280,7 @@ label {
 }
 
 .button:hover {
-    background: #262a33
+    background: linear-gradient(to left top, #6B15EC, rgba(2, 112, 215, 0));
 }
 
 .button:active {
@@ -1285,7 +1298,7 @@ label {
 
 .button-primary {
     background: #097dea;
-    background: linear-gradient(65deg, #6B15EC 0, #1596C1 100%)
+    background: linear-gradient(65deg, #6B15EC 0, #0F8AFD 100%)
 }
 
 .button-primary:hover {
@@ -1307,6 +1320,7 @@ label {
         width: 100%;
         max-width: 280px
     }
+
 }
 
 .site-header {
@@ -1333,7 +1347,7 @@ label {
     line-height: 24px;
     letter-spacing: -0.1px;
     font-weight: 600;
-    color: #8A94A7;
+    color: #000000;
     text-transform: uppercase;
     text-decoration: none;
     line-height: 16px;
@@ -1353,10 +1367,11 @@ label {
         width: 100%;
         height: 700px;
         background: #242830;
-        background: linear-gradient(80deg, rgba(36, 40, 48, 0.5) 0%, rgba(36, 40, 48, 0) 100%);
+        background: #fff;
         transform-origin: 0;
         transform: skewY(-12deg)
     }
+
 }
 
 .hero {
@@ -1628,6 +1643,7 @@ label {
     .hero-figure svg {
         width: auto
     }
+
 }
 
 .features-wrap {
@@ -1675,6 +1691,13 @@ label {
         padding: 32px 32px
     }
 }
+
+@media (min-width: 850px) {
+    .first-price {
+        margin-right: 9%;
+    }
+}
+
 
 .pricing-header {
     margin-bottom: 48px
@@ -1729,7 +1752,7 @@ label {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    background: #2C3039;
+    background: #fff;
     padding: 24px;
     height: 100%
 }
@@ -1751,11 +1774,11 @@ label {
 }
 
 .pricing-table-price-currency {
-    color: #8A94A7
+    color: #000
 }
 
 .pricing-table-features-title {
-    color: #fff;
+    color: #000;
     font-weight: 700
 }
 
@@ -1787,6 +1810,7 @@ label {
     .pricing-header {
         margin-bottom: 52px
     }
+
 }
 
 .cta {
@@ -1848,7 +1872,7 @@ label {
 }
 
 .body-wrap {
-    background: #1D2026;
+    background: #fff;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -1887,7 +1911,7 @@ main {
 }
 
 .site-footer a {
-    color: #8A94A7;
+    color: #000000;
     text-decoration: none
 }
 
