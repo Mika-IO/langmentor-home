@@ -1,316 +1,226 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LangmentorAI</title>
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
-    <link rel="stylesheet" href="dist/css/style.css">
-    <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
-</head>
-
-<body class="is-boxed has-animations">
-    <div class="body-wrap">
-        <header class="site-header">
-            <div class="container">
-                <div class="site-header-inner">
-                    <div class="brand header-brand">
-                        <h1 class="m-0">
-                        </h1>
-                    </div>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Langmentor AI</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            // Configuração para personalizar a cor primária
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#0F8AFD", // Nova cor primária
+                        },
+                    },
+                },
+            };
+        </script>
+    </head>
+    <body class="bg-gray-100">
+        <!-- Navbar -->
+        <nav class="bg-primary p-2 md:p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <img src="icon.svg" alt="Icon" class="w-8 h-8" />
+                    <h1 class="text-white text-center text-xl md:text-2xl font-bold">LangmentorAI</h1>
                 </div>
+                <button class="bg-white text-primary font-semibold px-2 py-1 md:px-4 md:py-2 rounded hover:bg-gray-200 text-sm md:text-base">
+                    Login Google
+                </button>
             </div>
-        </header>
-
-        <main>
-            <section class="hero">
-                <div class="container">
-                    <div class="hero-inner">
-                        <div class="hero-copy ">
-                            <div class="img-div"> <img src="dist/images/logo-big.svg" alt="langmentor.ai"></div>
-
-                            <p class="hero-paragraph">Aprenda inglês praticando com inteligência
-                                artificial. Torne-se
-                                fluente e tenha todas as suas dúvidas respondidas através do seu WhatsApp.</p>
-                            <div class=" hero-cta"><a class="button button-primary" href="#planos">Assinar</a><a
-                                    class="button"
-                                    href="https://api.whatsapp.com/send/?phone=16592646696&text=Eu+quero+testar+o+LangmentorAI!">Testar</a>
-                            </div>
-                        </div>
-                        <div class="hero-figure anime-element">
-                            <svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
-                                <rect width="528" height="396" style="fill:transparent;" />
-                            </svg>
-                            <div class="hero-figure-box hero-figure-box-01" data-rotation="45deg"></div>
-                            <div class="hero-figure-box hero-figure-box-02" data-rotation="-45deg"></div>
-                            <div class="hero-figure-box hero-figure-box-03" data-rotation="0deg"></div>
-                            <div class="hero-figure-box hero-figure-box-04" data-rotation="-135deg"></div>
-                            <div class="hero-figure-box hero-figure-box-05"></div>
-                            <div class="hero-figure-box hero-figure-box-06"></div>
-                            <div class="hero-figure-box hero-figure-box-07"></div>
-                            <div class="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
-                            <div class="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
-                            <div class="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="features section">
-                <div class="container">
-                    <div class="features-inner section-inner has-bottom-divider">
-                        <div class="features-wrap">
-
-                            <div class="feature text-center is-revealing">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-                                        <img src="dist/images/feature-icon-04.svg" alt="Feature 04">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Tenha a vantagem</h4>
-                                    <p class="text-sm mb-0">Fluência em inglês pode aumentar salários em até 61%. O
-                                        Langmentor te dá essa vantagem.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="feature text-center is-revealing">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-                                        <img src="dist/images/feature-icon-05.svg" alt="Feature 05">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Fale o idioma do mundo</h4>
-                                    <p class="text-sm mb-0">O inglês é a lingua franca para
-                                        todo o mundo. Amplie suas possibilidades
-                                        pessoais e profissionais através da nossa plataforma.</p>
-                                </div>
-                            </div>
-                            <div class="feature text-center is-revealing">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-                                        <img src="dist/images/feature-icon-06.svg" alt="Feature 06">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Pratique em Tempo Real</h4>
-                                    <p class="text-sm mb-0">Pratique a qualquer momento. Simule
-                                        interações reais, um aprendizado
-                                        natural e atraente. Recebe orientações e
-                                        correções, acelere seu progresso.</p>
-                                </div>
-                            </div>
-                            <div class="feature text-center is-revealing">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-                                        <img src="dist/images/feature-icon-03.svg" alt="Feature 03">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Missão</h4>
-                                    <p class="text-sm mb-0">Nossa missão é democratizar a prática de
-                                        idiomas. Substitua alto custo de tutores particulares por aprendizado a
-                                        qualquer
-                                        hora e lugar, e tenha uma melhor experiência.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="feature text-center is-revealing">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-                                        <img src="dist/images/feature-icon-01.svg" alt="Feature 01">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Acesso</h4>
-                                    <p class="text-sm mb-0">Após adquirir a assinatura, você recebe acesso
-                                        imediato. Basta receber nossa mensagem de boas-vindas e começar a enviar suas
-                                        mensagens. A interação é livre e sem restrições, facilitando o seu aprendizado
-                                        contínuo.</p>
-                                </div>
-                            </div>
-                            <div class="feature text-center is-revealing">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-                                        <img src="dist/images/feature-icon-02.svg" alt="Feature 02">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Teste grátis</h4>
-                                    <p class="text-sm mb-0">Experimente sem custos. Envie uma mensagem para
-                                        nosso chatbot e inicie uma interação imediatamente. Aproveite essa chance para
-                                        explorar como nossos serviços podem auxiliar no seu desenvolvimento.
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="pricing section">
-                <div class="container-sm">
-                    <div class="pricing-inner section-inner" id="planos">
-                        <div class="pricing-header text-center">
-                            <h2 class="section-title mt-0">Fique fluente</h2>
-                            <p class="section-paragraph mb-0">Assine um de nossos planos e tenha acesso a melhor forma
-                                de praticar inglês.
-                            </p>
-                        </div>
-                        <div class="pricing-tables-wrap" style="color: #000;">
-                            <div class="pricing-table first-price">
-                                <div class="pricing-table-inner is-revealing">
-                                    <div class="pricing-table-main">
-                                        <div class="pricing-table-features-title text-xs pt-24 pb-24">Plano
-                                            mensal
-                                        </div>
-                                        <div class="pricing-table-header pb-24">
-                                            <div class="pricing-table-price"><span
-                                                    class="pricing-table-price-currency h2">R$</span><span
-                                                    class="pricing-table-price-currency h1">49,90</span><span
-                                                    class="text-xs">/Mês</span></div>
-                                        </div>
-                                        <div class="pt-24 pb-24">R$49,90 por mês
-                                        </div>
-                                        <ul class="pricing-table-features list-reset text-xs">
-                                            <li>
-                                                <span>Aprenda 24/7</span>
-                                            </li>
-                                            <li>
-                                                <span>Converse sobre qualquer tema</span>
-                                            </li>
-                                            <li>
-                                                <span>Conversas ilimitadas por áudio/texto</span>
-                                            </li>
-                                            <li>
-                                                <span>Feedback de gramática </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="pricing-table-cta mb-8">
-                                        <a class="button button-secondary button-shadow button-block"
-                                            href="https://buy.stripe.com/6oEbMyg9u6Gt8Cs9AB">Assinar</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pricing-table">
-                                <div class="pricing-table-inner is-revealing">
-                                    <div class="pricing-table-main">
-                                        <div class="pricing-table-features-title text-xs pt-24 pb-24">Plano
-                                            anual
-                                        </div>
-                                        <div class="pricing-table-header pb-24">
-                                            <div class="pricing-table-price"><span
-                                                    class="pricing-table-price-currency h2">R$</span><span
-                                                    class="pricing-table-price-currency h1">29,90</span><span
-                                                    class="text-xs">/Mês</span></div>
-                                        </div>
-
-                                        <div class="pt-24 pb-24">R$358,80 por ano
-                                        </div>
-                                        <ul class="pricing-table-features list-reset text-xs">
-                                            <li>
-                                                <span>Aprenda 24/7</span>
-                                            </li>
-                                            <li>
-                                                <span>Converse sobre qualquer tema</span>
-                                            </li>
-                                            <li>
-                                                <span>Conversas ilimitadas por áudio/texto</span>
-                                            </li>
-                                            <li>
-                                                <span>Feedback de gramática </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="pricing-table-cta mb-8">
-                                        <a class="button button-primary button-shadow button-block"
-                                            href="https://buy.stripe.com/aEUaIu3mIe8V2e4cMM">Assinar</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="cta section">
-                <div class="container">
-                    <div class="cta-inner section-inner">
-                        <h3 class="section-title mt-0">Ainda não está convencido?</h3>
-                        <div class="cta-cta">
-                            <a class="button button-primary button-wide-mobile" href="#">Mande uma mensagem</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="site-footer">
-            <div class="container">
-                <div class="site-footer-inner">
-                    <div class="brand footer-brand">
-                        <a href="#">
-                            <img class="header-logo-image" src="dist/images/logo.svg" alt="Logo">
-                        </a>
-                    </div>
-                    <ul class="footer-links list-reset">
-                        <li>
-                            <a href="#">Entre em contato</a>
-                        </li>
-                        <li>
-                            <a href="#">Sobre nós</a>
-                        </li>
-                        <li>
-                            <a href="#">FAQ's</a>
-                        </li>
-                        <li>
-                            <a href="#">Suporte</a>
-                        </li>
-                    </ul>
-                    <ul class="footer-social-links list-reset">
-                        <li>
-                            <a href="https://www.facebook.com/profile.php?id=61556339823995">
-                                <span class="screen-reader-text">Facebook</span>
-                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M6.023 16L6 9H3V6h3V4c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V6H13l-1 3H9.28v7H6.023z"
-                                        fill="#6B15EC" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/company/langmentor-ai" target="_blank">
-                                <span class="screen-reader-text">LinkedIn</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19 0h-14c-2.8 0-5 2.2-5 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5v-14c0-2.8-2.2-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.7c-1 0-1.8-.8-1.8-1.8s.8-1.8 1.8-1.8 1.8.8 1.8 1.8-.8 1.8-1.8 1.8zm13.5 12.7h-3v-5.6c0-3.4-4-3.1-4 0v5.6h-3v-11h3v1.5c1.4-2.6 7-2.8 7 2.5v7z"
-                                        fill="#6B15EC" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/langmentor_ai" target="_blank">
-                                <span class="screen-reader-text">Instagram</span>
-                                <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M7.75 2C4.68 2 2 4.68 2 7.75v8.5C2 19.32 4.68 22 7.75 22h8.5C19.32 22 22 19.32 22 16.25v-8.5C22 4.68 19.32 2 16.25 2h-8.5zm0 1.5h8.5c3.45 0 6.25 2.8 6.25 6.25v8.5c0 3.45-2.8 6.25-6.25 6.25h-8.5C4.3 24 1.5 21.2 1.5 17.75v-8.5C1.5 6.3 4.3 3.5 7.75 3.5zm4.25 3a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zm0 1.5a3.75 3.75 0 1 1 0 7.5 3.75 3.75 0 0 1 0-7.5zm6.23-3a1.12 1.12 0 1 0 0 2.24 1.12 1.12 0 0 0 0-2.24z"
-                                        fill="#6B15EC" />
-                                </svg>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://twitter.com/langmentor_ai">
-                                <span class="screen-reader-text">Twitter</span>
-                                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4C.7 7.7 1.8 9 3.3 9.3c-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z"
-                                        fill="#6B15EC" />
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="footer-copyright">&copy; 2024 mikaio.dev, todos os direitos reservados</div>
-                </div>
+        </nav>
+        <!-- Tabs -->
+        <div class="bg-white shadow-md">
+            <div class="container mx-auto px-4 py-2 flex space-x-4 overflow-x-auto whitespace-nowrap">
+                <a href="#" class="text-primary border-b-4 border-primary font-semibold pb-2">Game</a>
+                <a href="#" class="text-gray-600 hover:text-primary pb-2">Search</a>
+                <a href="#" class="text-gray-600 hover:text-primary pb-2">Comunity</a>
+                <a href="#" class="text-gray-600 hover:text-primary pb-2">Pricing</a>
+                <a href="#" class="text-gray-600 hover:text-primary pb-2">Profile</a>
             </div>
-        </footer>
-    </div>
+        </div>
+        <!-- Game Content -->
+        <div class="container mx-auto mt-6 p-6 bg-white shadow-lg rounded-lg">
+            <div class="p-4">
+                <div class="mb-2 text-orange-500 font-bold">Learning English</div>
+                <!-- Frase em inglês com a lacuna -->
+                <p id="sentence" class="text-xl font-semibold text-primary mb-4">
+                    Where are you? – I am at
+                    <input id="answer-input" type="text" class="border-b-2 border-gray-400 focus:border-primary outline-none w-16 text-center" />
+                </p>
+                <!-- Tipo da palavra -->
+                <div class="bg-gray-100 rounded-full px-4 py-2 text-gray-700 inline-block">substantivo, singular</div>
+            </div>
+            <!-- Frase completa em português -->
+            <div class="bg-gray-100 p-4 text-gray-700 mt-4 rounded-lg">
+                <p id="sentence-pt" class="text-gray-500">Onde você está? Eu estou em casa.</p>
+            </div>
+            <!-- Botão de aprendizado -->
+            <div class="flex justify-end p-4 mt-4">
+                <button id="check-btn" class="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90">
+                    Verificar
+                </button>
+                <button id="next-btn" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 hidden">
+                    Próxima
+                </button>
+                <button id="show-answer-btn" class="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 hidden ml-4">
+                    Ver resposta
+                </button>
+            </div>
+            <!-- Mensagem de feedback (correta ou incorreta) -->
+            <div id="feedback-message" class="hidden text-center mt-4"></div>
+        </div>
+        <script>
+            // Definir as frases e as respostas corretas
+            const sentences = [
+                { sentence: "The ____ is on the table.", answer: "book", sentencePt: "O livro está sobre a mesa.", views: 0, errors: 0, correct: 0 },
+                { sentence: "She is holding a ____.", answer: "pen", sentencePt: "Ela está segurando uma caneta.", views: 0, errors: 0, correct: 0 },
+                { sentence: "They saw a ____ in the sky.", answer: "bird", sentencePt: "Eles viram um pássaro no céu.", views: 0, errors: 0, correct: 0 },
+                { sentence: "There is a ____ in the room.", answer: "chair", sentencePt: "Há uma cadeira na sala.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The cat is chasing a ____.", answer: "mouse", sentencePt: "O gato está perseguindo um rato.", views: 0, errors: 0, correct: 0 },
+                { sentence: "Please pass me the ____.", answer: "salt", sentencePt: "Por favor, me passe o sal.", views: 0, errors: 0, correct: 0 },
+                { sentence: "He parked the ____ in the garage.", answer: "car", sentencePt: "Ele estacionou o carro na garagem.", views: 0, errors: 0, correct: 0 },
+                { sentence: "I need to buy a new ____.", answer: "phone", sentencePt: "Eu preciso comprar um novo telefone.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The ____ is shining brightly.", answer: "sun", sentencePt: "O sol está brilhando intensamente.", views: 0, errors: 0, correct: 0 },
+                { sentence: "She put the ____ in the fridge.", answer: "milk", sentencePt: "Ela colocou o leite na geladeira.", views: 0, errors: 0, correct: 0 },
+                { sentence: "He is reading a ____.", answer: "newspaper", sentencePt: "Ele está lendo um jornal.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The dog is barking at the ____.", answer: "stranger", sentencePt: "O cachorro está latindo para o estranho.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The ____ is growing in the garden.", answer: "flower", sentencePt: "A flor está crescendo no jardim.", views: 0, errors: 0, correct: 0 },
+                { sentence: "I am going to the ____ tomorrow.", answer: "beach", sentencePt: "Eu vou à praia amanhã.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The children are playing with a ____.", answer: "ball", sentencePt: "As crianças estão brincando com uma bola.", views: 0, errors: 0, correct: 0 },
+                { sentence: "He is writing a ____ to his friend.", answer: "letter", sentencePt: "Ele está escrevendo uma carta para seu amigo.", views: 0, errors: 0, correct: 0 },
+                { sentence: "She gave him a ____ for his birthday.", answer: "gift", sentencePt: "Ela deu a ele um presente de aniversário.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The ____ is boiling on the stove.", answer: "water", sentencePt: "A água está fervendo no fogão.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The ____ flew over the mountains.", answer: "plane", sentencePt: "O avião voou sobre as montanhas.", views: 0, errors: 0, correct: 0 },
+                { sentence: "They are building a new ____ downtown.", answer: "bridge", sentencePt: "Eles estão construindo uma nova ponte no centro.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The artist painted a beautiful ____.", answer: "portrait", sentencePt: "O artista pintou um belo retrato.", views: 0, errors: 0, correct: 0 },
+                { sentence: "He is playing the ____ in the band.", answer: "guitar", sentencePt: "Ele está tocando guitarra na banda.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The ____ is very tasty.", answer: "pizza", sentencePt: "A pizza está muito saborosa.", views: 0, errors: 0, correct: 0 },
+                { sentence: "She is wearing a beautiful ____.", answer: "dress", sentencePt: "Ela está vestindo um belo vestido.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The ____ is barking loudly.", answer: "dog", sentencePt: "O cachorro está latindo alto.", views: 0, errors: 0, correct: 0 },
+                { sentence: "He is watching a ____ on TV.", answer: "movie", sentencePt: "Ele está assistindo a um filme na TV.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The ____ is on the desk.", answer: "computer", sentencePt: "O computador está na mesa.", views: 0, errors: 0, correct: 0 },
+                { sentence: "She found a ____ in the park.", answer: "coin", sentencePt: "Ela encontrou uma moeda no parque.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The ____ is running out of fuel.", answer: "car", sentencePt: "O carro está ficando sem combustível.", views: 0, errors: 0, correct: 0 },
+                { sentence: "He is cooking a ____ for dinner.", answer: "meal", sentencePt: "Ele está cozinhando uma refeição para o jantar.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The teacher gave the students a ____.", answer: "test", sentencePt: "O professor deu aos alunos um teste.", views: 0, errors: 0, correct: 0 },
+                { sentence: "They are planning a trip to the ____.", answer: "mountains", sentencePt: "Eles estão planejando uma viagem para as montanhas.", views: 0, errors: 0, correct: 0 },
+                { sentence: "He is reading a ____ under the tree.", answer: "book", sentencePt: "Ele está lendo um livro debaixo da árvore.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The baby is playing with a ____.", answer: "toy", sentencePt: "O bebê está brincando com um brinquedo.", views: 0, errors: 0, correct: 0 },
+                { sentence: "She took a ____ of water from the fridge.", answer: "bottle", sentencePt: "Ela pegou uma garrafa de água na geladeira.", views: 0, errors: 0, correct: 0 },
+                { sentence: "He bought a ____ at the store.", answer: "shirt", sentencePt: "Ele comprou uma camisa na loja.", views: 0, errors: 0, correct: 0 },
+                { sentence: "They are having a ____ in the park.", answer: "picnic", sentencePt: "Eles estão fazendo um piquenique no parque.", views: 0, errors: 0, correct: 0 },
+                { sentence: "The ____ is flying over the city.", answer: "drone", sentencePt: "O drone está voando sobre a cidade.", views: 0, errors: 0, correct: 0 },
+                { sentence: "She painted the walls with a new ____.", answer: "color", sentencePt: "Ela pintou as paredes com uma nova cor.", views: 0, errors: 0, correct: 0 },
+            ];
 
-    <script src="dist/js/main.min.js"></script>
-</body>
+            // Função para selecionar a próxima frase com certa aleatoriedade ponderada
+            function getNextSentenceIndex() {
+                // Calcular a diferença entre erros e acertos para cada frase e gerar pesos
+                const sentenceWeights = sentences.map((sentence, index) => {
+                    const difference = sentence.errors - sentence.correct; // Diferença entre erros e acertos
+                    const weight = Math.max(difference + 1, 1); // Evitar peso negativo, mínimo 1
+                    return { index, weight };
+                });
 
+                // Somar os pesos para calcular a distribuição
+                const totalWeight = sentenceWeights.reduce((sum, sentence) => sum + sentence.weight, 0);
+
+                // Gerar um valor aleatório baseado na soma dos pesos
+                const random = Math.random() * totalWeight;
+
+                // Selecionar a frase com base no valor aleatório e nos pesos
+                let cumulativeWeight = 0;
+                for (let i = 0; i < sentenceWeights.length; i++) {
+                    cumulativeWeight += sentenceWeights[i].weight;
+                    if (random < cumulativeWeight) {
+                        return sentenceWeights[i].index;
+                    }
+                }
+                return sentenceWeights[0].index; // Retornar a primeira frase como fallback
+            }
+
+            let currentSentenceIndex = getNextSentenceIndex(); // Inicializa com a frase aleatória ponderada
+
+            const sentenceElement = document.getElementById("sentence");
+            const sentencePtElement = document.getElementById("sentence-pt");
+            const feedbackMessage = document.getElementById("feedback-message");
+            const checkButton = document.getElementById("check-btn");
+            const nextButton = document.getElementById("next-btn");
+            const showAnswerButton = document.getElementById("show-answer-btn");
+
+            // Função para carregar a frase atual
+            function loadSentence() {
+                const currentSentence = sentences[currentSentenceIndex];
+                sentenceElement.innerHTML = currentSentence.sentence.replace("____", '<input id="answer-input" type="text" class="border-b-2 border-gray-400 focus:border-primary outline-none w-16 text-center">');
+                sentencePtElement.textContent = currentSentence.sentencePt;
+                feedbackMessage.classList.add("hidden");
+                nextButton.classList.add("hidden");
+                checkButton.classList.remove("hidden");
+                showAnswerButton.classList.add("hidden");
+            }
+
+            // Evento do botão de verificar resposta
+            checkButton.addEventListener("click", () => {
+                const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
+                const currentSentence = sentences[currentSentenceIndex];
+                const correctAnswer = currentSentence.answer.toLowerCase();
+
+                if (userAnswer === correctAnswer) {
+                    feedbackMessage.textContent = "Resposta correta!";
+                    feedbackMessage.classList.remove("hidden");
+                    feedbackMessage.classList.add("text-green-500");
+                    feedbackMessage.classList.remove("text-red-500");
+
+                    // Incrementa o número de acertos
+                    currentSentence.correct += 1;
+
+                    checkButton.classList.add("hidden");
+                    nextButton.classList.remove("hidden");
+                } else {
+                    feedbackMessage.textContent = "Resposta incorreta!";
+                    feedbackMessage.classList.remove("hidden");
+                    feedbackMessage.classList.add("text-red-500");
+                    feedbackMessage.classList.remove("text-green-500");
+
+                    // Incrementa o número de erros
+                    currentSentence.errors += 1;
+
+                    showAnswerButton.classList.remove("hidden");
+                }
+            });
+
+            // Evento do botão próxima frase
+            nextButton.addEventListener("click", () => {
+                currentSentenceIndex = getNextSentenceIndex(); // Seleciona a próxima frase com aleatoriedade ponderada
+                loadSentence();
+            });
+
+            // Evento para mostrar a resposta
+            showAnswerButton.addEventListener("click", () => {
+                const currentSentence = sentences[currentSentenceIndex];
+                document.getElementById("answer-input").value = currentSentence.answer;
+
+                // Incrementa o número de vezes que a resposta foi vista
+                currentSentence.views += 1;
+
+                showAnswerButton.classList.add("hidden");
+            });
+
+            function speakSentence(sentence) {
+                if ("speechSynthesis" in window) {
+                    const utterance = new SpeechSynthesisUtterance(sentence);
+                    utterance.lang = "en-US"; // Configura o idioma para inglês
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    console.log("Seu navegador não suporta Text-to-Speech.");
+                }
+            }
+
+            // Inicializar o jogo carregando a primeira frase
+            loadSentence();
+        </script>
+    </body>
 </html>
