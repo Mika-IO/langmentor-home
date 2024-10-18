@@ -48,10 +48,13 @@
                 <!-- Frase em inglês com a lacuna -->
                 <p id="sentence" class="text-xl font-semibold text-primary mb-4">
                     Where are you? – I am at
-                    <input id="answer-input" type="text" class="border-b-2 border-gray-400 focus:border-primary outline-none text-center" style="width: 5ch; max-width: 30ch;" oninput="this.style.width = (this.value.length > 0 ? this.value.length : 5) + 'ch';">
-
-
-
+                    <input
+                        id="answer-input"
+                        type="text"
+                        class="border-b-2 border-gray-400 focus:border-primary outline-none text-center"
+                        style="width: 5ch; max-width: 30ch;"
+                        oninput="this.style.width = (this.value.length > 0 ? this.value.length : 5) + 'ch';"
+                    />
                 </p>
                 <!-- Tipo da palavra -->
                 <div class="bg-gray-100 rounded-full px-4 py-2 text-gray-700 inline-block">substantivo, singular</div>
@@ -75,49 +78,9 @@
             <!-- Mensagem de feedback (correta ou incorreta) -->
             <div id="feedback-message" class="hidden text-center mt-4"></div>
         </div>
+
+        <script src="sentences.js"></script>
         <script>
-            // Definir as frases e as respostas corretas
-            const sentences = [
-                { sentence: "The ____ is on the table.", answer: "book", sentencePt: "O livro está sobre a mesa.", views: 0, errors: 0, correct: 0 },
-                { sentence: "She is holding a ____.", answer: "pen", sentencePt: "Ela está segurando uma caneta.", views: 0, errors: 0, correct: 0 },
-                { sentence: "They saw a ____ in the sky.", answer: "bird", sentencePt: "Eles viram um pássaro no céu.", views: 0, errors: 0, correct: 0 },
-                { sentence: "There is a ____ in the room.", answer: "chair", sentencePt: "Há uma cadeira na sala.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The cat is chasing a ____.", answer: "mouse", sentencePt: "O gato está perseguindo um rato.", views: 0, errors: 0, correct: 0 },
-                { sentence: "Please pass me the ____.", answer: "salt", sentencePt: "Por favor, me passe o sal.", views: 0, errors: 0, correct: 0 },
-                { sentence: "He parked the ____ in the garage.", answer: "car", sentencePt: "Ele estacionou o carro na garagem.", views: 0, errors: 0, correct: 0 },
-                { sentence: "I need to buy a new ____.", answer: "phone", sentencePt: "Eu preciso comprar um novo telefone.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The ____ is shining brightly.", answer: "sun", sentencePt: "O sol está brilhando intensamente.", views: 0, errors: 0, correct: 0 },
-                { sentence: "She put the ____ in the fridge.", answer: "milk", sentencePt: "Ela colocou o leite na geladeira.", views: 0, errors: 0, correct: 0 },
-                { sentence: "He is reading a ____.", answer: "newspaper", sentencePt: "Ele está lendo um jornal.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The dog is barking at the ____.", answer: "stranger", sentencePt: "O cachorro está latindo para o estranho.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The ____ is growing in the garden.", answer: "flower", sentencePt: "A flor está crescendo no jardim.", views: 0, errors: 0, correct: 0 },
-                { sentence: "I am going to the ____ tomorrow.", answer: "beach", sentencePt: "Eu vou à praia amanhã.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The children are playing with a ____.", answer: "ball", sentencePt: "As crianças estão brincando com uma bola.", views: 0, errors: 0, correct: 0 },
-                { sentence: "He is writing a ____ to his friend.", answer: "letter", sentencePt: "Ele está escrevendo uma carta para seu amigo.", views: 0, errors: 0, correct: 0 },
-                { sentence: "She gave him a ____ for his birthday.", answer: "gift", sentencePt: "Ela deu a ele um presente de aniversário.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The ____ is boiling on the stove.", answer: "water", sentencePt: "A água está fervendo no fogão.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The ____ flew over the mountains.", answer: "plane", sentencePt: "O avião voou sobre as montanhas.", views: 0, errors: 0, correct: 0 },
-                { sentence: "They are building a new ____ downtown.", answer: "bridge", sentencePt: "Eles estão construindo uma nova ponte no centro.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The artist painted a beautiful ____.", answer: "portrait", sentencePt: "O artista pintou um belo retrato.", views: 0, errors: 0, correct: 0 },
-                { sentence: "He is playing the ____ in the band.", answer: "guitar", sentencePt: "Ele está tocando guitarra na banda.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The ____ is very tasty.", answer: "pizza", sentencePt: "A pizza está muito saborosa.", views: 0, errors: 0, correct: 0 },
-                { sentence: "She is wearing a beautiful ____.", answer: "dress", sentencePt: "Ela está vestindo um belo vestido.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The ____ is barking loudly.", answer: "dog", sentencePt: "O cachorro está latindo alto.", views: 0, errors: 0, correct: 0 },
-                { sentence: "He is watching a ____ on TV.", answer: "movie", sentencePt: "Ele está assistindo a um filme na TV.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The ____ is on the desk.", answer: "computer", sentencePt: "O computador está na mesa.", views: 0, errors: 0, correct: 0 },
-                { sentence: "She found a ____ in the park.", answer: "coin", sentencePt: "Ela encontrou uma moeda no parque.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The ____ is running out of fuel.", answer: "car", sentencePt: "O carro está ficando sem combustível.", views: 0, errors: 0, correct: 0 },
-                { sentence: "He is cooking a ____ for dinner.", answer: "meal", sentencePt: "Ele está cozinhando uma refeição para o jantar.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The teacher gave the students a ____.", answer: "test", sentencePt: "O professor deu aos alunos um teste.", views: 0, errors: 0, correct: 0 },
-                { sentence: "They are planning a trip to the ____.", answer: "mountains", sentencePt: "Eles estão planejando uma viagem para as montanhas.", views: 0, errors: 0, correct: 0 },
-                { sentence: "He is reading a ____ under the tree.", answer: "book", sentencePt: "Ele está lendo um livro debaixo da árvore.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The baby is playing with a ____.", answer: "toy", sentencePt: "O bebê está brincando com um brinquedo.", views: 0, errors: 0, correct: 0 },
-                { sentence: "She took a ____ of water from the fridge.", answer: "bottle", sentencePt: "Ela pegou uma garrafa de água na geladeira.", views: 0, errors: 0, correct: 0 },
-                { sentence: "He bought a ____ at the store.", answer: "shirt", sentencePt: "Ele comprou uma camisa na loja.", views: 0, errors: 0, correct: 0 },
-                { sentence: "They are having a ____ in the park.", answer: "picnic", sentencePt: "Eles estão fazendo um piquenique no parque.", views: 0, errors: 0, correct: 0 },
-                { sentence: "The ____ is flying over the city.", answer: "drone", sentencePt: "O drone está voando sobre a cidade.", views: 0, errors: 0, correct: 0 },
-                { sentence: "She painted the walls with a new ____.", answer: "color", sentencePt: "Ela pintou as paredes com uma nova cor.", views: 0, errors: 0, correct: 0 },
-            ];
 
             // Função para selecionar a próxima frase com certa aleatoriedade ponderada
             function getNextSentenceIndex() {
@@ -154,21 +117,63 @@
             const nextButton = document.getElementById("next-btn");
             const showAnswerButton = document.getElementById("show-answer-btn");
 
-            // Função para carregar a frase atual
             function loadSentence() {
                 const currentSentence = sentences[currentSentenceIndex];
-                sentenceElement.innerHTML = currentSentence.sentence.replace("____", '<input id="answer-input" type="text" class="border-b-2 border-gray-400 focus:border-primary outline-none text-center" style="width: 5ch; max-width: 30ch;" oninput="this.style.width = Math.min(this.value.length, 30) + \'ch\';">');
 
+                // Cria a frase completa para ser usada na fala, substituindo "____" pela resposta correta.
+                const completeSentence = currentSentence.sentence.replace("____", currentSentence.answer);
+
+                sentenceElement.innerHTML = `
+                    <button id="speak-btn" class="ml-2 text-white p-1 rounded">🔊</button><br>
+                    ${currentSentence.sentence.replace(
+                        "____",
+                        '<input id="answer-input" type="text" class="border-b-2 border-gray-400 focus:border-primary outline-none text-center" style="width: 4ch; max-width: 10ch;" oninput="this.style.width = Math.min(this.value.length, 15) + \'ch\';">'
+                    )}
+                `;
+
+                const input = document.getElementById("answer-input");
+                input.focus();
 
                 sentencePtElement.textContent = currentSentence.sentencePt;
                 feedbackMessage.classList.add("hidden");
                 nextButton.classList.add("hidden");
                 checkButton.classList.remove("hidden");
                 showAnswerButton.classList.add("hidden");
+
+                speakSentence(completeSentence);
+
+                // Adicionar evento ao botão de fala
+                document.getElementById("speak-btn").addEventListener("click", () => {
+                    speakSentence(completeSentence);
+                });
+
+                // Adicionar evento para verificar a resposta ao pressionar Enter
+                const answerInput = document.getElementById("answer-input");
+                answerInput.addEventListener("keypress", (event) => {
+                    console.log("enter");
+                    if (event.key === "Enter") {
+                        // Verifica quais botões estão visíveis e chama a função apropriada
+                        if (!checkButton.classList.contains("hidden") && showAnswerButton.classList.contains("hidden")) {
+                            console.log("check");
+                            checkAnswer(); // Se apenas o botão de verificar está ativo, verifica a resposta
+                            return;
+                        }
+                        if (!showAnswerButton.classList.contains("hidden")) {
+                            console.log("show");
+                            showAnswer(); // Esconde o botão de mostrar resposta
+                            return;
+                        }
+                        if (!nextButton.classList.contains("hidden")) {
+                            console.log("next");
+                            currentSentenceIndex = getNextSentenceIndex(); // Seleciona a próxima frase com aleatoriedade ponderada
+                            loadSentence(); // Carrega a próxima frase
+                        }
+                    }
+                });
             }
 
-            // Evento do botão de verificar resposta
-            checkButton.addEventListener("click", () => {
+            // Função para verificar a resposta
+            function checkAnswer() {
                 const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
                 const currentSentence = sentences[currentSentenceIndex];
                 const correctAnswer = currentSentence.answer.toLowerCase();
@@ -195,7 +200,10 @@
 
                     showAnswerButton.classList.remove("hidden");
                 }
-            });
+            }
+
+            // Evento do botão de verificar resposta
+            checkButton.addEventListener("click", checkAnswer);
 
             // Evento do botão próxima frase
             nextButton.addEventListener("click", () => {
@@ -203,26 +211,68 @@
                 loadSentence();
             });
 
-            // Evento para mostrar a resposta
-            showAnswerButton.addEventListener("click", () => {
+            function showAnswer() {
                 const currentSentence = sentences[currentSentenceIndex];
-                document.getElementById("answer-input").value = currentSentence.answer;
+                input = document.getElementById("answer-input")
+                input.value = currentSentence.answer;
+                input.style.width = Math.min(currentSentence.answer.length + 1, 15) + 'ch';
 
                 // Incrementa o número de vezes que a resposta foi vista
                 currentSentence.views += 1;
 
                 showAnswerButton.classList.add("hidden");
+
+                
+            }
+
+            // Evento para mostrar a resposta
+            showAnswerButton.addEventListener("click", () => {
+                showAnswer();
             });
 
+            // Função de falar usada anteriormente
+            function speak(text) {
+                const speech = new SpeechSynthesisUtterance(text);
+                speech.lang = "en-US";
+                speech.rate = 1; // Velocidade da fala
+                speech.pitch = 1; // Tom da voz
+                speech.volume = 1; // Volume (0 a 1)
+
+                // Seleciona a voz mais natural
+                const voices = speechSynthesis.getVoices();
+                const naturalVoice = voices.find((voice) => voice.name.includes("Google US English")); // Altere o nome conforme necessário
+
+                if (naturalVoice) {
+                    speech.voice = naturalVoice;
+                }
+
+                window.speechSynthesis.speak(speech);
+            }
+
+            // Função adaptada para usar a mesma voz ao falar uma frase
             function speakSentence(sentence) {
                 if ("speechSynthesis" in window) {
                     const utterance = new SpeechSynthesisUtterance(sentence);
                     utterance.lang = "en-US"; // Configura o idioma para inglês
+                    utterance.rate = 1;
+                    utterance.pitch = 1;
+                    utterance.volume = 1;
+
+                    // Seleciona a voz mais natural, como na função speak
+                    const voices = speechSynthesis.getVoices();
+                    const naturalVoice = voices.find((voice) => voice.name.includes("Google US English")); // Altere conforme necessário
+
+                    if (naturalVoice) {
+                        console.log("natural");
+                        utterance.voice = naturalVoice;
+                    }
+
                     window.speechSynthesis.speak(utterance);
                 } else {
                     console.log("Seu navegador não suporta Text-to-Speech.");
                 }
             }
+            speakSentence("Welcome langmentor AI");
 
             // Inicializar o jogo carregando a primeira frase
             loadSentence();
