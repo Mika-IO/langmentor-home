@@ -26,19 +26,19 @@
                     <img src="icon.svg" alt="Icon" class="w-8 h-8" />
                     <h1 class="text-white text-center text-xl md:text-2xl font-bold">LangmentorAI</h1>
                 </div>
-                <button class="bg-white text-primary font-semibold px-2 py-1 md:px-4 md:py-2 rounded hover:bg-gray-200 text-sm md:text-base">
+                <!-- <button class="bg-white text-primary font-semibold px-2 py-1 md:px-4 md:py-2 rounded hover:bg-gray-200 text-sm md:text-base">
                     Login Google
-                </button>
+                </button> -->
             </div>
         </nav>
         <!-- Tabs -->
         <div class="bg-white shadow-md">
             <div class="container mx-auto px-4 py-2 flex space-x-4 overflow-x-auto whitespace-nowrap">
-                <a href="#" class="text-primary border-b-4 border-primary font-semibold pb-2">Game</a>
-                <a href="#" class="text-gray-600 hover:text-primary pb-2">Search</a>
-                <a href="#" class="text-gray-600 hover:text-primary pb-2">Community</a>
-                <a href="#" class="text-gray-600 hover:text-primary pb-2">Pricing</a>
-                <a href="#" class="text-gray-600 hover:text-primary pb-2">Profile</a>
+                <a href="index.html" class="text-primary border-b-4 border-primary font-semibold pb-2">Learn</a>
+                <a href="read.html" class="text-gray-600 hover:text-primary pb-2">Read</a>
+                <a href="statistics.html" class="text-gray-600 hover:text-primary pb-2">Info</a>
+                <a href="price.html" class="text-gray-600 hover:text-primary pb-2">Pricing</a>
+                <a href="profile.html" class="text-gray-600 hover:text-primary pb-2">Profile</a>
             </div>
         </div>
         <!-- Game Content -->
@@ -57,7 +57,7 @@
                     />
                 </p>
                 <!-- Tipo da palavra -->
-                <div class="bg-gray-100 rounded-full px-4 py-2 text-gray-700 inline-block">substantivo, singular</div>
+                <!-- <div class="bg-gray-100 rounded-full px-4 py-2 text-gray-700 inline-block">substantivo, singular</div> -->
             </div>
             <!-- Frase completa em português -->
             <div class="bg-gray-100 p-4 text-gray-700 mt-4 rounded-lg">
@@ -66,13 +66,13 @@
             <!-- Botão de aprendizado -->
             <div class="flex justify-end p-4 mt-4">
                 <button id="check-btn" class="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90">
-                    Verificar
+                    Check
                 </button>
                 <button id="next-btn" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 hidden">
-                    Próxima
+                    Next
                 </button>
                 <button id="show-answer-btn" class="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 hidden ml-4">
-                    Ver resposta
+                    Show Answer
                 </button>
             </div>
             <!-- Mensagem de feedback (correta ou incorreta) -->
@@ -82,7 +82,18 @@
         <script src="sentences.js"></script>
         <script>
 
-            // Função para selecionar a próxima frase com certa aleatoriedade ponderada
+            const correctSound = new Audio('sounds/correct.mp3');
+            const incorrectSound = new Audio('sounds/incorrect.mp3');
+
+            correctSound.volume = 0.5;
+            incorrectSound.volume = 0.5;
+
+            // Ajustar a velocidade de reprodução para 2x
+            correctSound.playbackRate = 3.0;
+            incorrectSound.playbackRate = 3.0;
+
+
+            // Função para selecionar a Next frase com certa aleatoriedade ponderada
             function getNextSentenceIndex() {
                 // Calcular a diferença entre erros e acertos para cada frase e gerar pesos
                 const sentenceWeights = sentences.map((sentence, index) => {
@@ -134,7 +145,9 @@
                 const input = document.getElementById("answer-input");
                 input.focus();
 
-                sentencePtElement.textContent = currentSentence.sentencePt;
+                sentencePtElement.innerHTML = currentSentence.sentencePt.replace(currentSentence.answerPt, `<span style="color: var(--primary); font-weight:bold;">${currentSentence.answerPt}</span>`);
+
+
                 feedbackMessage.classList.add("hidden");
                 nextButton.classList.add("hidden");
                 checkButton.classList.remove("hidden");
@@ -147,7 +160,7 @@
                     speakSentence(completeSentence);
                 });
 
-                // Adicionar evento para verificar a resposta ao pressionar Enter
+                // Adicionar evento para Check a resposta ao pressionar Enter
                 const answerInput = document.getElementById("answer-input");
                 answerInput.addEventListener("keypress", (event) => {
                     console.log("enter");
@@ -155,7 +168,7 @@
                         // Verifica quais botões estão visíveis e chama a função apropriada
                         if (!checkButton.classList.contains("hidden") && showAnswerButton.classList.contains("hidden")) {
                             console.log("check");
-                            checkAnswer(); // Se apenas o botão de verificar está ativo, verifica a resposta
+                            checkAnswer(); // Se apenas o botão de Check está ativo, verifica a resposta
                             return;
                         }
                         if (!showAnswerButton.classList.contains("hidden")) {
@@ -165,49 +178,52 @@
                         }
                         if (!nextButton.classList.contains("hidden")) {
                             console.log("next");
-                            currentSentenceIndex = getNextSentenceIndex(); // Seleciona a próxima frase com aleatoriedade ponderada
-                            loadSentence(); // Carrega a próxima frase
+                            currentSentenceIndex = getNextSentenceIndex(); // Seleciona a Next frase com aleatoriedade ponderada
+                            loadSentence(); // Carrega a Next frase
                         }
                     }
                 });
             }
 
-            // Função para verificar a resposta
+            // Função para Check a resposta
             function checkAnswer() {
                 const userAnswer = document.getElementById("answer-input").value.toLowerCase().trim();
                 const currentSentence = sentences[currentSentenceIndex];
                 const correctAnswer = currentSentence.answer.toLowerCase();
 
                 if (userAnswer === correctAnswer) {
-                    feedbackMessage.textContent = "Resposta correta!";
+                    correctSound.play();
+                    feedbackMessage.textContent = "🎉 Your answer is correct!";
                     feedbackMessage.classList.remove("hidden");
                     feedbackMessage.classList.add("text-green-500");
                     feedbackMessage.classList.remove("text-red-500");
 
-                    // Incrementa o número de acertos
+                    // Increment the number of correct answers
                     currentSentence.correct += 1;
 
                     checkButton.classList.add("hidden");
                     nextButton.classList.remove("hidden");
                 } else {
-                    feedbackMessage.textContent = "Resposta incorreta!";
+                    incorrectSound.play();
+                    feedbackMessage.textContent = "❌ Oops! Try again or check the correct answer.";
                     feedbackMessage.classList.remove("hidden");
                     feedbackMessage.classList.add("text-red-500");
                     feedbackMessage.classList.remove("text-green-500");
 
-                    // Incrementa o número de erros
+                    // Increment the number of incorrect attempts
                     currentSentence.errors += 1;
 
                     showAnswerButton.classList.remove("hidden");
                 }
+
             }
 
-            // Evento do botão de verificar resposta
+            // Evento do botão de Check resposta
             checkButton.addEventListener("click", checkAnswer);
 
-            // Evento do botão próxima frase
+            // Evento do botão Next frase
             nextButton.addEventListener("click", () => {
-                currentSentenceIndex = getNextSentenceIndex(); // Seleciona a próxima frase com aleatoriedade ponderada
+                currentSentenceIndex = getNextSentenceIndex(); // Seleciona a Next frase com aleatoriedade ponderada
                 loadSentence();
             });
 

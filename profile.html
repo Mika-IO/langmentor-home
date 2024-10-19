@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Langmentor AI - Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configuração para personalizar a cor primária
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0F8AFD", // Nova cor primária
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-gray-100">
+     <!-- Navbar -->
+     <nav class="bg-primary p-2 md:p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="icon.svg" alt="Icon" class="w-8 h-8" />
+                <h1 class="text-white text-center text-xl md:text-2xl font-bold">LangmentorAI</h1>
+            </div>
+            <!-- <button class="bg-white text-primary font-semibold px-2 py-1 md:px-4 md:py-2 rounded hover:bg-gray-200 text-sm md:text-base">
+                Login Google
+            </button> -->
+        </div>
+    </nav>
+    <!-- Tabs -->
+    <div class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-2 flex space-x-4 overflow-x-auto whitespace-nowrap">
+            <a href="index.html" class="text-gray-600 hover:text-primary pb-2">Learn</a>
+            <a href="read.html" class="text-gray-600 hover:text-primary pb-2">Read</a>
+            <a href="statistics.html" class="text-gray-600 hover:text-primary pb-2">Info</a>
+            <a href="price.html" class="text-gray-600 hover:text-primary pb-2">Pricing</a>
+            <a href="profile.html" class="text-primary border-b-4 border-primary font-semibold pb-2">Profile</a>
+        </div>
+    </div>
+    <!-- Profile Content -->
+    <div class="container mx-auto mt-6 p-6 bg-white shadow-lg rounded-lg">
+        <div class="mt-6">
+            <img src="https://avatars.githubusercontent.com/u/55309160?s=400&u=45292a383018ea5ffcf1b621a5fca46d9c2ea425&v=4" alt="User Avatar" class="w-24 h-24 rounded-full mb-4" />
+            <h3 class="text-2xl font-semibold">Mikaio</h3>
+            <p class="text-gray-500 mb-2">mikaiodev@gmail.com</p>
+            <p class="text-gray-700"><strong>Joined:</strong> September 15, 2024</p>
+            <p class="text-gray-700"><strong>Languages:</strong> English, Spanish, French</p>
+            <p class="text-gray-700"><strong>Native:</strong> Portuguese</p>
+        </div>
+        <div class="mt-6">
+            <h3 class="text-lg font-semibold mb-2">Recent Activities</h3>
+            <ul class="list-disc list-inside text-gray-700">
+                <li>Completed English Level 1 Course</li>
+                <li>Participated in French Language Exchange</li>
+                <li>Submitted feedback on the learning platform</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
